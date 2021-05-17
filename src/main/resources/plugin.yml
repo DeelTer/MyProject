@@ -1,0 +1,14 @@
+name: MyProject
+version: ${project.version}
+main: ru.deelter.myproject.MyProject
+api-version: 1.16
+
+prefix: MyProject
+authors: [ DeelTer ]
+description: my plugin
+website: https://vk.com/deelter
+
+commands:
+  test:
+    aliases: [ testcommand ]
+    description: simple command
