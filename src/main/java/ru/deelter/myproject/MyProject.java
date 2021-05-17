@@ -26,10 +26,10 @@ public final class MyProject extends JavaPlugin {
         }
         Config.load(this);
 
-        PluginCommand testCommand = getCommand("test");
-        if (testCommand != null) {
-            testCommand.setExecutor(new TestCommand());
-            testCommand.setTabCompleter(new TestCommand());
+        PluginCommand command = getCommand("test");
+        if (command != null) {
+            command.setExecutor(new TestCommand());
+            command.setTabCompleter(new TestCommand());
         }
     }
 
