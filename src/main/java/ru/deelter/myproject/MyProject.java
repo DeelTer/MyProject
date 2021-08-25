@@ -3,9 +3,6 @@ package ru.deelter.myproject;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.deelter.myproject.commands.TestCommand;
-import ru.deelter.myproject.utils.Console;
-
-import java.io.File;
 
 public final class MyProject extends JavaPlugin {
 
@@ -18,13 +15,8 @@ public final class MyProject extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-
-        File config = new File(instance.getDataFolder().getPath() + "/config.yml");
-        if (!config.exists()) {
-            Console.debug("Load new configuration");
-            saveDefaultConfig();
-        }
-        Config.load(this);
+        saveDefaultConfig();
+        Config.load();
 
         PluginCommand command = getCommand("test");
         if (command != null) {

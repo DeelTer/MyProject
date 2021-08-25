@@ -1,19 +1,15 @@
 package ru.deelter.myproject.commands;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
+import org.bukkit.command.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.deelter.myproject.Config;
-import ru.deelter.myproject.MyProject;
 import ru.deelter.myproject.utils.Colors;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestCommand implements CommandExecutor, @Nullable TabCompleter {
+public class TestCommand implements TabExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -22,13 +18,12 @@ public class TestCommand implements CommandExecutor, @Nullable TabCompleter {
             return true;
         }
 
-        /* Reload config command */
+        // Reload config
         if (args[0].equalsIgnoreCase("reload")) {
-            sender.sendMessage(Colors.set("&eConfig reloaded!"));
-            Config.reload(MyProject.getInstance());
+            sender.sendMessage("Config reloaded");
+            Config.reload();
             return true;
         }
-        //TODO maybe new args here
         return true;
     }
 
