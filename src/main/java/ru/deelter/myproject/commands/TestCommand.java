@@ -30,10 +30,14 @@ public class TestCommand implements TabExecutor {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
         List<String> suggestions = new ArrayList<>();
-        if (args.length == 1) {
-            suggestions.add("reload");
-            return suggestions;
-        }
-        return null;
+        if (args.length == 1) suggestions.add("reload");
+        return filter(suggestions, args);
+    }
+
+    private static List<String> filter(@NotNull List<String> variables, String[] args) {
+        List<String> result = new ArrayList<>();
+        String lastArg = args[args.length - 1];
+        for (String variable : variables) if (variable.startsWith(lastArg)) result.add(variable);
+        return result;
     }
 }

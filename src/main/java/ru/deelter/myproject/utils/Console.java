@@ -11,7 +11,7 @@ public class Console {
     }
 
     public static void debug(String s) {
-        if (Config.DEBUG)
+        if (Config.isDebugEnable())
             info("&f" + s);
     }
 }
