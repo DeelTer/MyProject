@@ -10,13 +10,13 @@
     <packaging>jar</packaging>
 
     <name>MyProject</name>
-
     <description>my plugin</description>
+    <url>https://vk.com/deelter</url>
+
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <url>https://vk.com/deelter</url>
 
     <build>
         <plugins>
